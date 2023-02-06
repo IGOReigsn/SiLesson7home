@@ -24,7 +24,7 @@ int InputNumberWithFilter(string qwerStr, bool zeroEnable, bool negativEnable)//
     while(true)
         {
             num=InputNumber(qwerStr);//проверяет "численность"."Не выпускает" без ввода ЧИСЛА
-           if(num>=0 || num==0 && zeroEnable || num<0 && negativEnable) break;
+           if(num>0 || num==0 && zeroEnable || num<0 && negativEnable) break;
            Console.WriteLine("Введено не разрешенное значение.Попробуйте еще раз"); 
         }
     return num;  
