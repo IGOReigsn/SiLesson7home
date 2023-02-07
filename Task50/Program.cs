@@ -58,10 +58,43 @@ System.Console.WriteLine();
 }
 }
 //------------------------------------------------------------------------------------------------------
+void FindNum(int[,] matr, int num)
+{
+int m=matr.GetLength(0);
+int n=matr.GetLength(1);
+for (int i=0;i<m;i++)
+    {
+      for (int j=0;j<n;j++)  
+        {
+            if(matr[i,j]==num)
+                {
+                    Console.WriteLine($"Индексы введенного числа: первый {i} второй: {j}");
+                    Console.WriteLine($"что соответствует строке: {i+1} столбцу(колонку): {j+1}");
+                    return;
+                }
+        }
+    }
+Console.WriteLine("Такое число в массиве (матрице)не найдено");
+}
+//------------------------------------------------------------------------------------------------------
 // -------------------ОСНОВНАЯ ПРОГРАММА----------------------------------------------------------------------------
-int m=InputNumberWithFilter("Введите m - количество СТРОК массива:", false, false);
-int n=InputNumberWithFilter("Введите n - количество СТОЛБЦОВ(КОЛОНОК) массива:", false, false);
+int m=InputNumberWithFilter("Введите m - количество СТРОК массива (матрицы):", false, false);
+int n=InputNumberWithFilter("Введите n - количество СТОЛБЦОВ(КОЛОНОК) массива (матрицы):", false, false);
 int[,] matrix = FillMatrix(m, n);
 System.Console.WriteLine();
 PrintMatrix(matrix);
-int n=InputNumberWithFilter("Введите число (индекс):", true, false);
+int num=InputNumberWithFilter("Введите число которое надо найти:", true,true);
+FindNum(matrix,num);
+/*for (int i=0;i<m;i++)
+    {
+      for (int j=0;j<n;j++)  
+        {
+            if(matrix[i,j]==num)
+                {
+                    Console.WriteLine($"Индексы введенного числа: первый {i} второй: {j}");
+                    Console.WriteLine($"что соответствует строке: {i+1} столбцу(колонку): {j+1}");
+                    break;
+                }
+        }
+    }
+Console.WriteLine("Такое число в массиве (матрице)не найдено");*/
